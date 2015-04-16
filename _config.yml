@@ -1,13 +1,12 @@
 # Site settings
-title: Kyle Haptonstall
+title: One Byte at a Time
 email: khaptonstall93@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   My name is Kyle Haptonstall, a junior computer science major at Monmouth College ready to be unleased into the job market in May 2016. 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
+#twitter_username: jekyllrb
 github_username:  khaptonstall
-linkedin_username: khaptonstall
 
 # Build settings
 markdown: kramdown
