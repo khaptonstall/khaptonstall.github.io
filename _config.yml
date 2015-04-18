@@ -9,4 +9,9 @@ url: "http://khaptonstall.github.io" # the base hostname & protocol for your sit
 github_username:  khaptonstall
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+
+cover: "assests/profile.jpg"
