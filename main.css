@@ -38,35 +38,8 @@
     background-size: cover;
 }
 
-.jumbotron .container{
-    background-image: url(kyleandkary.jpg);
-    width: 200px; // These are your circle dimensions
-    height: 200px;
-    border-radius: 50%;
-    //background-repeat: no-repeat;
-    background-position: center; // Center image in the circle
-    background-size: cover;
-
-}
 
 
-
-/*
-.jumbotron h1{
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    //font-family: 'Open Sans', sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    text-align: center;
-  
-    
-}*/
-/*
-.jumbotron .container{
-    text-align: center;
-    
-}*/
 
 .about{
     padding-bottom: 100px;
