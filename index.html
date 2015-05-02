@@ -1,23 +1,63 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>ACM@MC</title>
+    <link href="main.css" rel="stylesheet">
+      
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
-<div class="home">
+  </head>
+  
+  <body>
+    <div class="nav">
+        <div class="container">
+        <ul id="tabs" class = "nav nav-pills navbar-right" data-tabs="tabs">
+          <li><a href="about.html" data-toggle="tab">About</a></li>
+          <li><a href=calendar.html data-toggle="tab">Blog</a></li>
+          <li><a href="contact.html" data-toggle="tab">Contact</a></li>
+        </ul>
+    </div>
+    </div>
 
-  <h1 class="page-heading">Posts</h1>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Kyle Haptonstall</h1>
+        <h2></h2>
+      </div>
+    </div> 
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
- 
-
-</div>
+      
+    <div class="learn-more">
+        <div class="container">
+	       <div class = "row">
+		      <div class="col-md-4">
+			         <h3>Join ACM</h3>
+			         <p>Unlock all the perks of being an ACM member, as well as access to hundreds of online resources and research papers.</p>
+			         <p><a href="joinnow-less.html">Join Now!</a></p>
+		      </div>
+		  <div class="col-md-4">
+			<h3>Meet the Members</h3>
+			<p>Get to know our members.</p>
+			<p><a href="#">Learn more!</a></p>
+		  </div>
+		  <div class="col-md-4">
+			<h3>Donate</h3>
+			<p>Support our chapter.</p>
+			<p><a href="#">Donate Now!</a></p>
+		  </div>
+	    </div>
+	  </div>
+    </div>
+      
+      <footer class="small-contact">
+            <p></p>ACM@MC |</p>
+            <p><a href="mailto:monmouthcollegeacm@gmail.com" target="_top">monmouthcollegeacm@gmail.com</a> |</p>
+            <p>Association for Computing Machinery, 700 E. Broadway, Monmouth IL, 61462 |</p>  
+            <a href="https://www.facebook.com/monmouthacm"><i class="fa fa-facebook"></i></a>
+      <a href="https://github.com/ACMMC"><i class="fa fa-github"></i></a>
+        </footer>
+      
+  </body>
+</html>
