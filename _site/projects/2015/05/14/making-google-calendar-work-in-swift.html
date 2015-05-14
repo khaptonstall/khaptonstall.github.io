@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Making Google Calendar work in Swift</title>
+  <meta name="description" content="Journey of a Computer Science Major in Small Town, Illinois
+" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="canonical" href="http://khaptonstall.github.io/projects/2015/05/14/making-google-calendar-work-in-swift.html">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.png">
+<!--  <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+
+<a href="http://khaptonstall.github.io" class="logo-readium"><span class="logo" style="background-image: url(/assets/images/kh-logo.jpg)"></span></a>
+
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="article-image">
+          <div class="post-image-image" style="background-image: url(/assets/article_images/2014-08-29-welcome-to-jekyll/default.jpg)">
+            Article Image
+          </div>
+          <div class="post-meta">
+            <h1 class="post-title">Making Google Calendar work in Swift</h1>
+            <div class="cf post-meta-text">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">Kyle Haptonstall</h4>
+              on
+              <time datetime="2015-05-14 13:45">14 May 2015</time>
+              <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
+            </div>
+            <div style="text-align:center">
+              <a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <p>As I&#39;ve been working on developing an iOS app for my Fraternity, I came across one roadblock that had almost no documentation online. At least without hours of searching and sifting through StackOverflow posts, digging up little bits and pieces that I could finally use to make a whole answer. So I thought I would post what I found worked, and do so in one place for those also searching. </p>
+
+<p>Specifically, I am attempting to access my public Google Calendar and make it available to users of my app, allowing them to see and sign-up for public events I post.</p>
+
+<p>The problem with using Google Calendar API is that all documentation is in Objective-C, and using a bridging header wasn&#39;t the solution because it is impossible to find, if it exists, the framework encapsulating the hundred of header files that is the API.  </p>
+
+<p>First thing you need to do after creating your app is head over to the Google Developer site and register your app with the Google Developer Console. After doing so, make a new public API access key in the “Credentials” tab. Leave the “Accept requests from an iOS application with one of the bundle identifiers listed below:” section blank, allowing any request since I am only accessing a public calendar.</p>
+
+<p>Now you can go into wherever you want your calendar feed to show up, in my case my ViewController.swift: </p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">NSURL</span><span class="p">(</span><span class="nl">string</span><span class="p">:</span> <span class="err">“</span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.googleapis.com/calendar/v3/calendars/{CalendarID}/events?key={API-Access-Key}”)</span>
+        <span class="k">let</span> <span class="n">task</span> <span class="o">=</span> <span class="bp">NSURLSession</span><span class="p">.</span><span class="n">sharedSession</span><span class="p">().</span><span class="n">dataTaskWithURL</span><span class="p">(</span><span class="n">url</span><span class="o">!</span><span class="p">)</span> <span class="p">{(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+            <span class="k">var</span> <span class="nl">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="o">?</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+            
+            
+            <span class="k">if</span> <span class="k">let</span> <span class="nl">json</span><span class="p">:</span> <span class="bp">NSDictionary</span> <span class="o">=</span> <span class="bp">NSJSONSerialization</span><span class="p">.</span><span class="n">JSONObjectWithData</span><span class="p">(</span><span class="n">data</span><span class="o">!</span><span class="p">,</span> <span class="nl">options</span><span class="p">:</span> <span class="n">NSJSONReadingOptions</span><span class="p">.</span><span class="n">MutableContainers</span><span class="p">,</span> <span class="nl">error</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span> <span class="kt">as</span><span class="o">?</span> <span class="bp">NSDictionary</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="k">let</span> <span class="n">items</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">&quot;items&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="bp">NSArray</span> <span class="p">{</span>
+                    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">items</span> <span class="p">{</span>
+                       <span class="k">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">CalendarObject</span><span class="p">(</span><span class="nl">json</span><span class="p">:</span> <span class="n">item</span> <span class="kt">as</span><span class="o">!</span> <span class="bp">NSDictionary</span><span class="p">)</span>
+                   <span class="p">}</span>
+
+                <span class="p">}</span>
+            <span class="p">}</span>
+            
+        <span class="p">}</span></code></pre></div>
+
+<p>CalendarID is generally the Gmail address associated with the Google Calendar, but can be found by going to your Google Calendar and clicking on “Calendar Settings.” Also, you will want to change your error variable into something more user friendly than “nil.” ;)</p>
+
+<p>You can store specific data from the JSON feed you got in the code above into a class as I do with CalendarObject.swift:</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">CalendarObject</span> <span class="p">{</span>
+    
+    <span class="k">var</span> <span class="nl">endTime</span><span class="p">:</span> <span class="n">String</span><span class="o">?</span>
+    <span class="k">var</span> <span class="nl">location</span><span class="p">:</span> <span class="n">String</span><span class="o">?</span>
+    <span class="k">var</span> <span class="nl">startTime</span><span class="p">:</span> <span class="n">String</span><span class="o">?</span>
+    <span class="k">var</span> <span class="nl">summary</span><span class="p">:</span> <span class="n">String</span><span class="o">?</span>
+
+    
+    <span class="k">init</span><span class="p">(</span><span class="nl">json</span><span class="p">:</span> <span class="bp">NSDictionary</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="n">end</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">&quot;end&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="n">String</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">endTime</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">&quot;location&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="n">String</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">loc</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="n">start</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">&quot;start&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="n">String</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">startTime</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">&quot;summary&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="n">String</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">summary</span> <span class="o">=</span> <span class="n">sum</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>Written by</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4>Kyle Haptonstall</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">Published <time datetime="2015-05-14 13:45">14 May 2015</time></p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span>Supported by</span></h5>
+            <footer class="site-footer">
+              <section class="poweredby">Proudly published with <a href="http://jekyllrb.com"> Jekyll</a></section>
+              <a class="subscribe" href="/feed.xml"> <span class="tooltip"> <i class="fa fa-rss"></i> You should subscribe to my feed.</span></a>
+              <div class="inner">
+                <section class="copyright">All content copyright <a href="/">Kyle Haptonstall</a> &copy; 2015<br>All rights reserved.</section>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/cover.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Kyle Haptonstall</h1>
+        <h2 class="blog-description">Journey of a Computer Science Major in Small Town, Illinois
+</h2>
+        <a href="/" class="btn">Back to Overview</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+
+  </body>
+</html>
