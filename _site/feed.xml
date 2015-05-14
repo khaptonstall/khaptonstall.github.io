@@ -6,9 +6,33 @@
 </description>
     <link>http://khaptonstall.github.io/</link>
     <atom:link href="http://khaptonstall.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 14 May 2015 17:13:56 -0500</pubDate>
-    <lastBuildDate>Thu, 14 May 2015 17:13:56 -0500</lastBuildDate>
+    <pubDate>Thu, 14 May 2015 17:34:30 -0500</pubDate>
+    <lastBuildDate>Thu, 14 May 2015 17:34:30 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>The Move to Maryland</title>
+        <description>&lt;p&gt;This summer I&amp;#39;m excited to have been accepted to the &lt;a href=&quot;http://www.cs.umd.edu/projects/reucaar/projects2015.html&quot;&gt;University of Maryland REU&lt;/a&gt; on Combinatorial Algorithms Applied Research. This will be my second REU, my last being at the University of North Texas focusing on testing Android systems. &lt;/p&gt;
+
+&lt;p&gt;An REU (Research Experience for Undergrads) is an NSF funded research program that allows undergraduates in the STEM fields to explore new areas of research at universities across the country.&lt;/p&gt;
+
+&lt;p&gt;This summer I will get the chance to expand my knowledge of artificial intelligence and algorithms. My group will be specifically focusing on algorithms in relation to the &lt;a href=&quot;http://en.wikipedia.org/wiki/Can%27t_Stop_%28board_game%29&quot;&gt;Can&amp;#39;t Stop Game.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As my REU begins I will try to keep weekly blog posts with updates on my research.&lt;/p&gt;
+
+&lt;p&gt;Until then
+-kh &lt;/p&gt;
+</description>
+        <pubDate>Thu, 14 May 2015 12:34:00 -0500</pubDate>
+        <link>http://khaptonstall.github.io/research/2015/05/14/the-move-to-maryland.html</link>
+        <guid isPermaLink="true">http://khaptonstall.github.io/research/2015/05/14/the-move-to-maryland.html</guid>
+        
+        <category>research</category>
+        
+        
+        <category>research</category>
+        
+      </item>
     
   </channel>
 </rss>
