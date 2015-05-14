@@ -16,6 +16,7 @@ This summer I will get the chance to expand my knowledge of artificial intellige
 As my REU begins I will try to keep weekly blog posts with updates on my research.
 
 Until then
+
 -kh 
 
 
