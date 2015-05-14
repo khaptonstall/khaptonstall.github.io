@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kyle Haptonstall</title>
+    <description>Journey of a Computer Science Major in Small Town, Illinois
+</description>
+    <link>http://khaptonstall.github.io/</link>
+    <atom:link href="http://khaptonstall.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 14 May 2015 17:13:56 -0500</pubDate>
+    <lastBuildDate>Thu, 14 May 2015 17:13:56 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+  </channel>
+</rss>
