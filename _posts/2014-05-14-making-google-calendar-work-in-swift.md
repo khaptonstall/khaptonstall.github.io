@@ -4,7 +4,7 @@ title:  "Making Google Calendar work in Swift"
 date:   2015-05-14 18:45:00
 categories: projects
 tags: swift google-calendar json
-image: /assets/article_images/2014-08-29-welcome-to-jekyll/default.jpg
+image: /assets/article_images/2015-05-14-making-google-calendar-work-in-swift/default.jpg
 ---
 
 As I've been working on developing an iOS app for my Fraternity, I came across one roadblock that had almost no documentation online. At least without hours of searching and sifting through StackOverflow posts, digging up little bits and pieces that I could finally use to make a whole answer. So I thought I would post what I found worked, and do so in one place for those also searching. 
