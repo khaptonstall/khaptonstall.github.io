@@ -48,6 +48,11 @@ social:
     share_url:
     share_title:
     share_link:
+    
+analytics :
+  provider : google
+  google : 
+      tracking_id : 'UA-63016211-1'
 
 jekyll_ga:
   service_account_email: 929771368653-q1tmanog0tf5oib4kb2g0jojgoovlgii@developer.gserviceaccount.com   # service account email address
