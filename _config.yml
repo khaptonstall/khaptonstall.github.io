@@ -21,6 +21,8 @@ author_image: "/assets/images/author.jpg"
 
 paginate:	5
 
+exclude: ["GithubBlog.json", "privatekey.p12"]
+
 url: "http://khaptonstall.github.io" # the base hostname & protocol for your site
 baseurl: ""
 
@@ -47,9 +49,14 @@ social:
     share_title:
     share_link:
 
-#  - icon:	google-plus
-#    url:	https://google.com/???
-#    desc:	Add me on google+
-#    share_url:
-#    share_title:
-#    share_link:
+jekyll_ga:
+  service_account_email: 929771368653-q1tmanog0tf5oib4kb2g0jojgoovlgii@developer.gserviceaccount.com   # service account email address
+  key_file: privatekey.p12  # service account private key file
+  key_secret: notasecret    # service account private key's password
+  profileID: ga:102373413        # profile ID 
+  start: last month         # Beginning of report
+  end: now                  # End of report
+  metric: ga:pageviews      # Metric code
+  segment:                  # optional
+  filters:                  # optional
+  sort: true                # Sort posts by this metric
