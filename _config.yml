@@ -65,3 +65,6 @@ jekyll_ga:
   segment:                  # optional
   filters:                  # optional
   sort: true                # Sort posts by this metric
+  
+  
+  
