@@ -8,6 +8,7 @@ I'm Kyle Haptonstall, a senior Computer Science major at Monmouth College. I'll 
 
 ##Current Projects	
 
+
 ####Can't Stop AI
 As a NSF Research Fellow at the University of Maryland, my project consists of creating multiple AI's that can take on 
 and hopefully beat a human player in the board game [Can't Stop][cant-stop-wiki]. The project is coded entirely in C++
