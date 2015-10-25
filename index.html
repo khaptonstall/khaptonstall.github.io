@@ -1,95 +1,154 @@
----
-layout: default
----
+<!DOCTYPE HTML>
+<!--
+	Highlights by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Kyle Haptonstall</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
 
-<div class="teaserimage">
-    <div class="teaserimage-image" {% if site.cover %}style="background-image: url({{ site.cover }})"{% endif %}>
-        Teaser Image
-    </div>
-</div>
+		<!-- Header -->
+			<section id="header">
+				<header class="major">
+					<h1>Hello, world!</h1>
+					<p>Let me introduce myself</a></p>
+				</header>
+				<div class="container">
+					<ul class="actions">
+						<li><a href="#one" class="button special scrolly">Begin</a></li>
+					</ul>
+				</div>
+			</section>
 
-<header class="blog-header">
-    {% if site.logo %}
-      <a class="blog-logo" href="{{site.url}}" style="background-image: url('{{ site.logo }}')">{{ site.title }}</a>
-    {% endif %}
-    <h1 class="blog-title">{{ site.title }}</h1>
-    <h2 class="blog-description">{{ site.description }}</h2>
-    <div class="custom-links">
-      {% for social in site.social %}
-        {% if social.url %}
-            <a class="icon-{{ social.icon }}" href="{{ social.url }}">
-              <i class="fa fa-{{ social.icon }}"></i>
-            </a>
-            &nbsp;&nbsp;·&nbsp;&nbsp;
-        {% endif %}
-      {% endfor %}
-      <a href="/about/">About</a>
-    </div>
-</header>
+		<!-- One -->
+			<section id="one" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+                            <a href="#" class="image avatar"><img src="images/avatar3.png" alt="" /></a>
 
+							<h2>Who I am</h2>
+						</header>
+						<p>Hello! I'm Kyle, a senior computer science major at Monmouth College. I also like to consider myself an iOS Developer, when I have the time. I love de-stressing at the gym, kayaking, and reading all about meta-mathematics and artificial intelligence.</p>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
 
-<main class="content" role="main">
+		<!-- Two -->
+			<section id="two" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Stuff I do</h2>
+						</header>
+						<p>Check out just a few of the recent projects I've worked on!</p>
+						<ul class="icons-grid">
+							<li>
+                                <a href="https://itunes.apple.com/ua/app/sigep-il-gamma/id1025278993?l=ru&mt=8"><span class="icon major fa-apple"></span></a>
+								<h3>iOS Development</h3>
+							</li>
+							<li>
+                                <a href="github.com/khaptonstall/Cant-Stop"><span class="icon major fa-connectdevelop"></span></a>
+								<h3>AI in Games</h3>
+							</li>
+							<li>
+                                <a href="https://github.com/khaptonstall/Octave-MappedMatrixMultiplication"><span class="icon major fa-desktop"></span></a>
+								<h3>Quantum Computing</h3>
+							</li>
+							<li>
+                                <a href="https://github.com/khaptonstall/Pyret-Interpreters"><span class="icon major fa-keyboard-o"></span></a>
+								<h3>Interpreters</h3>
+							</li>
+						</ul>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
 
-    {% if site.tags.featured %}
-    <h5 class="index-headline featured"><span>Featured</span></h5>
-
-    <div class="container featured">
-      {% for post in site.tags.featured %}
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-          <div class="article-item">
-            <header class="post-header">
-              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
-            </header>
-            <section class="post-excerpt" itemprop="description">
-              <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-            </section>
-            <div class="post-meta">
-              <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
-  <!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
-            </div>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-
-    <h5 class="index-headline normal"><span>Regular</span></h5>
-    {% endif %}
-
-    <div class="cf frame">
-      {% for post in paginator.posts %}
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-          <div class="article-item">
-            <header class="post-header">
-              <h2 class="post-title" itemprop="name"><a href="{{ post.url }}" itemprop="url">{{ post.title }}</a></h2>
-            </header>
-            <section class="post-excerpt" itemprop="description">
-              <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-            </section>
-            <div class="post-meta">
-              <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
-<!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
-            </div>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-
-    <nav class="pagination" role="navigation">
-      {% if paginator.next_page %}
-        <a class="newer-posts" href="/page{{paginator.next_page}}">&larr; Older posts</a>
-      {% endif %}
-      <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      {% if paginator.previous_page %}
-        {% if paginator.page == 2 %}
-          <a class="older-posts" href="/">Newer posts &rarr;</a>
-        {% else %}
-          <a class="older-posts" href="/page{{paginator.previous_page}}">Newer posts &rarr;</a>
-        {% endif %}
-      {% endif %}
-    </nav>
+		<!-- Three -->
+			<section id="three" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic03.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>One more thing</h2>
+						</header>
+						<p>I'm available for hire! I'm currently seeking software engineering and iOS Development roles in either new grad or entry level positions, and I love working with multiple languages and APIs: </p>
+                    <ul style="list-style-type:none">
+						<li><b>OOP:</b> C++, Java</li>
+						<li><b>Mobile</b> Swift</li>
+                        <li><b>Other Languages:</b> Python, Octave, Mathematica</li>
+                        <li><b>APIs:</b> Google Calendar, Google Maps, Facebook, Parse</li>
+					</ul>
+					<a href="#footer" class="goto-next scrolly">Next</a>
+				</div>
+                </div>
+			</section>
 
 
-    <!-- {{!! After all the posts, we have the previous/next pagination links }}
-    {{pagination}} -->
+		<!-- Footer -->
+			<section id="footer">
+				<div class="container">
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+						<p>Connect with me however you like!</p>
+						<ul class="icons-grid">
+							<li>
+                                <a href="https://www.facebook.com/kyle.haptonstall"><span class="icon major fa-facebook"></span></a>
+								<h3>Facebok</h3>
+							</li>
+							<li>
+                                <a href="https://github.com/khaptonstall"><span class="icon major fa-github"></span></a>
+								<h3>Github</h3>
+							</li>
+							<li>
+                                <a href="https://www.linkedin.com/pub/kyle-haptonstall/67/839/a55"><span class="icon major fa-linkedin"></span></a>
+								<h3>LinkedIn</h3>
+							</li>
+							<li>
+                                <a href="mailto:khaptonstall@monmouthcollege.edu?Subject=Let's%20Connect" target="_top"><span class="icon major fa-envelope"></span></a>
+								<h3>Email</h3>
+							</li>
+						</ul>
+					</div>
+				</div>
+<!-- Do not display this at the moment
 
-</main>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://github.com/khaptonstall" class="icon alt fa-github"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/kyle.haptonstall" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.linkedin.com/pub/kyle-haptonstall/67/839/a55" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+-->	
+            <ul class="copyright">
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
