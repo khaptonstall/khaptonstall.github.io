@@ -1312,7 +1312,7 @@
 	html {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-image: url("images/overlay.png"), url("images/bg.jpeg");
 		background-position: top left,					center center;
 		background-repeat: repeat,						none;
 		background-size: auto,						cover;
@@ -2211,6 +2211,19 @@
 		}
 
 			.image.fit img {
+				width: 100%;
+			}
+
+	.image.avatar {
+			border-radius: 100%;
+		}
+
+			.image.avatar:before {
+				display: none;
+			}
+
+			.image.avatar img {
+				border-radius: 100%;
 				width: 100%;
 			}
 
