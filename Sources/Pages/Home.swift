@@ -5,7 +5,7 @@ struct Home: StaticPage {
     var title = "Home"
 
     func body(context: PublishingContext) -> [BlockElement] {
-        Image("images/photos/headshot.png", description: "A headshot of the author")
+        Image("/images/Photos/headshot.png", description: "A headshot of the author")
             .resizable()
             .frame(width: 150, height: 150)
             .margin()
