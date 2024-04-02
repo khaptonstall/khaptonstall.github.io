@@ -28,7 +28,7 @@ enum SocialWebsite: String, CaseIterable {
     }
 
     private var imageFolderPath: String {
-        return "/images/SocialIcons/"
+        return "/images/socialicons/"
     }
 
     private var imageName: String {
