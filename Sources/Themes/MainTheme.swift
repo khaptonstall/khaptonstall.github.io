@@ -7,8 +7,12 @@ struct MyTheme: Theme {
             Head(for: page, in: context)
 
             Body {
+                if page.title != "Home" {
+                    NavBar()
+                }
                 page.body
             }
+            .padding(.vertical, 80)
         }
     }
 }

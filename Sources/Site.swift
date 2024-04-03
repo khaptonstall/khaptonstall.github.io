@@ -18,6 +18,11 @@ struct ExampleSite: Site {
     var name = "Kyle Haptonstall"
     var url = URL("khaptonstall.github.io")
     var builtInIconsEnabled = true
+    var syntaxHighlighters: [SyntaxHighlighter] = [
+        .bash,
+        .swift,
+        .yaml,
+    ]
 
     var author = "Kyle Haptonstall"
     var robotsConfiguration = Robots()

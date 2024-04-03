@@ -8,7 +8,7 @@ struct Home: StaticPage {
         Image("/images/photos/headshot.png", description: "A headshot of the author")
             .resizable()
             .frame(width: 150, height: 150)
-            .margin()
+            .margin(.bottom)
             .imageAlignment(.center)
 
         Text("Hello, I'm Kyle Haptonstall.")
@@ -38,5 +38,18 @@ Most recently, I lead iOS engineering for Riva Health, [turning your iPhone into
             }
         }
         .horizontalAlignment(.center)
+
+        Text("Recent Articles")
+            .font(.title1)
+            .horizontalAlignment(.center)
+            .margin(.top, 80)
+
+        Section {
+            for article in context.content(ofType: "articles") {
+                ContentPreview(for: article)
+                    .horizontalAlignment(.center)
+            }
+        }
+        .margin(.horizontal)
     }
 }
