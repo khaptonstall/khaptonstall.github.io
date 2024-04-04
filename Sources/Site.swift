@@ -17,7 +17,7 @@ struct IgniteWebsite {
 struct ExampleSite: Site {    
     var name = "Kyle Haptonstall"
     var titleSuffix: String = " - Kyle Haptonstall"
-    var url = URL("khaptonstall.github.io")
+    var url = URL("https://khaptonstall.github.io")
     var builtInIconsEnabled = true
     var syntaxHighlighters: [SyntaxHighlighter] = [
         .bash,

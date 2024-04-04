@@ -4,4 +4,4 @@ Disallow: *
 User-agent: *
 Allow: /
 
-Sitemap: khaptonstall.github.io/sitemap.xml
+Sitemap: https://khaptonstall.github.io/sitemap.xml
