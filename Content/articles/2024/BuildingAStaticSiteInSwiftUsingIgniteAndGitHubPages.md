@@ -2,7 +2,7 @@
 author: Kyle Haptonstall
 date: 2024-04-03 09:00
 ---
-# Building a Static Site using Ignite and GitHub Pages
+# Building a Static Site in Swift using Ignite and GitHub Pages
 
 I recently decided to update my personal home page (a simple one-page HTML site using Jekyll) to try out Ignite, as I’d much prefer to maintain a Swift package over working directly with HTML. 
 
