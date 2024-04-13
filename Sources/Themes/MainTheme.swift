@@ -1,3 +1,5 @@
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
+
 import Foundation
 import Ignite
 

@@ -1,3 +1,5 @@
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
+
 import Foundation
 import Ignite
 
@@ -19,8 +21,8 @@ struct Home: StaticPage {
             .horizontalAlignment(.center)
 
         Text(markdown: """
-Most recently, I lead iOS engineering for Riva Health, [turning your iPhone into an FDA-approved blood pressure monitor.](https://techcrunch.com/2021/03/17/riva-health-wants-to-turn-your-smartphone-into-a-blood-pressure-monitor/)
-""")
+        Most recently, I lead iOS engineering for Riva Health, [turning your iPhone into an FDA-approved blood pressure monitor.](https://techcrunch.com/2021/03/17/riva-health-wants-to-turn-your-smartphone-into-a-blood-pressure-monitor/)
+        """)
         .horizontalAlignment(.center)
 
         Text("I’m also a big fan of craft coffee ☕ and English football ⚽.")

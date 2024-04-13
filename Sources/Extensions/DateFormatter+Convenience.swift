@@ -1,9 +1,4 @@
-//
-//  DateFormatter+Convenience.swift
-//  
-//
-//  Created by Kyle Haptonstall on 4/2/24.
-//
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
 
 import Foundation
 

@@ -1,9 +1,4 @@
-//
-//  Image+Alignment.swift
-//
-//
-//  Created by Kyle Haptonstall on 4/2/24.
-//
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
 
 import Foundation
 import Ignite
@@ -17,12 +12,11 @@ extension PageElement where Self == Image {
         // Source: https://getbootstrap.com/docs/4.0/content/images/#aligning-images
         switch horizontalAlignment {
         case .leading:
-            return self.class("rounded float-left")
+            self.class("rounded float-left")
         case .center:
-            return self.class("rounded mx-auto d-block")
+            self.class("rounded mx-auto d-block")
         case .trailing:
-            return self.class("rounded float-right")
-
+            self.class("rounded float-right")
         }
     }
 }

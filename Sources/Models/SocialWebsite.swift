@@ -1,9 +1,4 @@
-//
-//  SocialWebsite.swift
-//  
-//
-//  Created by Kyle Haptonstall on 4/2/24.
-//
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
 
 import Foundation
 
@@ -13,32 +8,32 @@ enum SocialWebsite: String, CaseIterable {
     case medium = "https://medium.com/@Khaptonstall"
 
     var relativeImagePath: String {
-        return "\(imageFolderPath)\(imageName)"
+        "\(imageFolderPath)\(imageName)"
     }
 
     var imageDescription: String {
         switch self {
         case .linkedIn:
-            return "LinkedIn"
+            "LinkedIn"
         case .github:
-            return "GitHub"
+            "GitHub"
         case .medium:
-            return "Medium"
+            "Medium"
         }
     }
 
     private var imageFolderPath: String {
-        return "/images/socialicons/"
+        "/images/socialicons/"
     }
 
     private var imageName: String {
         switch self {
         case .linkedIn:
-            return "linkedin_black.png"
+            "linkedin_black.png"
         case .github:
-            return "github_black.png"
+            "github_black.png"
         case .medium:
-            return "medium_black.png"
+            "medium_black.png"
         }
     }
 }

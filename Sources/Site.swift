@@ -1,3 +1,5 @@
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
+
 import Foundation
 import Ignite
 
@@ -14,7 +16,7 @@ struct IgniteWebsite {
     }
 }
 
-struct ExampleSite: Site {    
+struct ExampleSite: Site {
     var name = "Kyle Haptonstall"
     var titleSuffix: String = " - Kyle Haptonstall"
     var url = URL("https://khaptonstall.github.io")
@@ -35,5 +37,3 @@ struct ExampleSite: Site {
         Article()
     }
 }
-
-

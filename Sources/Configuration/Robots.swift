@@ -1,9 +1,4 @@
-//
-//  Robots.swift
-//
-//
-//  Created by Kyle Haptonstall on 4/2/24.
-//
+// Copyright © 2024 Kyle Haptonstall. All rights reserved.
 
 import Foundation
 import Ignite
@@ -12,9 +7,8 @@ struct Robots: RobotsConfiguration {
     var disallowRules: [DisallowRule]
 
     init() {
-        disallowRules = [
-            DisallowRule(robot: .chatGPT)
+        self.disallowRules = [
+            DisallowRule(robot: .chatGPT),
         ]
     }
 }
-
