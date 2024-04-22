@@ -20,41 +20,41 @@ First, you’ll need to have a repository setup in which you’ll store your cod
 We’ll also need a code snippet to work with. For demo purposes, I’ll use the one below, which contains some boilerplate to create a new `EnvironmentKey` in SwiftUI:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>environmentkey</string>
-	<key>IDECodeSnippetCompletionScopes</key>
-	<array>
-		<string>TopLevel</string>
-	</array>
-	<key>IDECodeSnippetContents</key>
-	<string>private struct &lt;#Key#&gt;: EnvironmentKey {
-    static let defaultValue: &lt;#Type#&gt; = &lt;#Default Value#&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;IDECodeSnippetCompletionPrefix&lt;/key&gt;
+    &lt;string&gt;environmentkey&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetCompletionScopes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;TopLevel&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;IDECodeSnippetContents&lt;/key&gt;
+    &lt;string&gt;private struct &amp;lt;#Key#&amp;gt;: EnvironmentKey {
+    static let defaultValue: &amp;lt;#Type#&amp;gt; = &amp;lt;#Default Value#&amp;gt;
 }
 
 extension EnvironmentValues {
-    var &lt;#name#&gt;: &lt;#Type#&gt; {
-        get { self[&lt;#Key#&gt;.self] }
-        set { self[&lt;#Key#&gt;.self] = newValue }
+    var &amp;lt;#name#&amp;gt;: &amp;lt;#Type#&amp;gt; {
+        get { self[&amp;lt;#Key#&amp;gt;.self] }
+        set { self[&amp;lt;#Key#&amp;gt;.self] = newValue }
     }
-}</string>
-	<key>IDECodeSnippetIdentifier</key>
-	<string>8DBC6F81-7661-48B5-B852-2336988AB94C</string>
-	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
-	<key>IDECodeSnippetSummary</key>
-	<string></string>
-	<key>IDECodeSnippetTitle</key>
-	<string>EnvironmentKey</string>
-	<key>IDECodeSnippetUserSnippet</key>
-	<true/>
-	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
-</dict>
-</plist>
+}&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetIdentifier&lt;/key&gt;
+    &lt;string&gt;8DBC6F81-7661-48B5-B852-2336988AB94C&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetLanguage&lt;/key&gt;
+    &lt;string&gt;Xcode.SourceCodeLanguage.Swift&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetSummary&lt;/key&gt;
+    &lt;string&gt;&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetTitle&lt;/key&gt;
+    &lt;string&gt;EnvironmentKey&lt;/string&gt;
+    &lt;key&gt;IDECodeSnippetUserSnippet&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;IDECodeSnippetVersion&lt;/key&gt;
+    &lt;integer&gt;0&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
 ```
 
 And here’s the Swift code the above code snippet will generate:
