@@ -4,7 +4,8 @@ import Foundation
 import Ignite
 
 struct Home: StaticPage {
-    var title = "Home"
+    let title = "Home"
+    let description = "Kyle Haptonstall's personal website and blog."
 
     func body(context: PublishingContext) -> [BlockElement] {
         Image("/images/photos/headshot.png", description: "A headshot of the author")
