@@ -32,12 +32,16 @@ struct Home: StaticPage {
 
         Text {
             for socialWebsite in SocialWebsite.allCases {
-                Link(target: socialWebsite.rawValue) {
-                    Image(socialWebsite.relativeImagePath, description: socialWebsite.imageDescription)
-                        .resizable()
-                        .frame(width: 44, height: 44)
+                Button {
+                    Link(target: socialWebsite.rawValue) {
+                        Image(systemName: socialWebsite.systemImageName)
+                            .margin(.trailing, 4)
+                        socialWebsite.displayName
+                    }
+                    .class("btn", "btn-dark") // Use "btn" to remove typical hyperlink underline
+                    .role(.dark)
+                    .style("background-color: #ffffff;")
                 }
-                .margin()
             }
         }
         .horizontalAlignment(.center)

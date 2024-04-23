@@ -7,11 +7,7 @@ enum SocialWebsite: String, CaseIterable {
     case github = "https://github.com/khaptonstall"
     case medium = "https://medium.com/@Khaptonstall"
 
-    var relativeImagePath: String {
-        "\(imageFolderPath)\(imageName)"
-    }
-
-    var imageDescription: String {
+    var displayName: String {
         switch self {
         case .linkedIn:
             "LinkedIn"
@@ -22,18 +18,15 @@ enum SocialWebsite: String, CaseIterable {
         }
     }
 
-    private var imageFolderPath: String {
-        "/images/socialicons/"
-    }
-
-    private var imageName: String {
+    // Source: https://icons.getbootstrap.com/
+    var systemImageName: String {
         switch self {
         case .linkedIn:
-            "linkedin_black.png"
+            "linkedin"
         case .github:
-            "github_black.png"
+            "github"
         case .medium:
-            "medium_black.png"
+            "medium"
         }
     }
 }
