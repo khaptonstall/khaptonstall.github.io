@@ -4,7 +4,7 @@
 
 Using Automatic Signing in Xcode 15.4, I received a “Failed Registering Bundle Identifier” error when I went to go add a new Capability for one of my Targets:
 
-![](/images/3CC89754-611B-41FE-A4B8-FCD084BE7DB8.png)
+![](images/3CC89754-611B-41FE-A4B8-FCD084BE7DB8.png)
 
 While the error message states:
 
