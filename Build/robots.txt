@@ -1,7 +1,0 @@
-User-agent: GPTBot
-Disallow: *
-
-User-agent: *
-Allow: /
-
-Sitemap: https://khaptonstall.github.io/sitemap.xml
