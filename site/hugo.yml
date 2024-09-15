@@ -43,3 +43,6 @@ menu:
     - name: Archives
       url: /archives/
       weight: 20
+    - name: Search
+      url: /search/
+      weight: 30
