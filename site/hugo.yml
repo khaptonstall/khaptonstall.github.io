@@ -7,6 +7,9 @@ outputs:
     - HTML
     - RSS
     - JSON
+services:
+  googleAnalytics:
+    ID: G-KNFBPEKEMX
 
 params:
   env: production # enable social metadata and seo
@@ -26,10 +29,6 @@ params:
       url: "https://github.com/khaptonstall"
     - name: linkedin
       url: "https://www.linkedin.com/in/khaptonstall/"
-
-  analytics:
-    google:
-      SiteVerificationTag: "G-KNFBPEKEMX"
   
   fuseOpts:
     isCaseSensitive: false
