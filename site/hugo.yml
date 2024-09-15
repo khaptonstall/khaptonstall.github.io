@@ -15,6 +15,7 @@ params:
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
 
   homeInfoParams:
     Title: Hi there 👋
