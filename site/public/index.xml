@@ -15,13 +15,24 @@
       <guid>http://localhost:1313/posts/fix-failed-registering-bundle-identifier-error-with-automatic-signing-in-xcode-15/</guid>
       <description>&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
 &lt;p&gt;Using Automatic Signing in Xcode 15.4, I received a “Failed Registering Bundle Identifier” error when I went to go add a new Capability for one of my Targets:&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;failed-registering-bundle-identifier-error.png&#34; alt=&#34;alt&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;failed-registering-bundle-identifier-error.png&#34; alt=&#34;&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;While the error message states:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;The app identifier “…” cannot be registered to your development team because it is not available.&lt;/strong&gt; Change your bundle identifier to a unique string to try again.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;the app identifier (Bundle Identifier) was already registered under my account in App Store Connect, and signing was previously working prior to adding a new Capability (which updates the Provisioning Profile).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Share Extension with SwiftUI</title>
+      <link>http://localhost:1313/posts/building-a-share-extension-with-swiftui/</link>
+      <pubDate>Fri, 12 Jul 2024 21:32:03 -0500</pubDate>
+      <guid>http://localhost:1313/posts/building-a-share-extension-with-swiftui/</guid>
+      <description>&lt;h1 id=&#34;overview&#34;&gt;Overview&lt;/h1&gt;
+&lt;p&gt;At time of writing, the Share Extension has yet to be given the SwiftUI overhaul that other Target-types have received, so you’ll be met with a UIKit setup and Storyboard interface upon initial creation.&lt;/p&gt;
+&lt;p&gt;If you’re like me and want to leverage SwiftUI wherever possible, this article will show you how to do just that for your Share Extensions 👇&lt;/p&gt;
+&lt;h1 id=&#34;share-extension-setup&#34;&gt;Share Extension Setup&lt;/h1&gt;
+&lt;p&gt;The sections below will walk you through setting up a brand new Share Extension in your app. If you’ve already got one setup, feel free to jump down to SwiftUI Conversion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Repository of Xcode Code Snippets</title>

@@ -9,7 +9,7 @@ author: Kyle Haptonstall
 
 Using Automatic Signing in Xcode 15.4, I received a “Failed Registering Bundle Identifier” error when I went to go add a new Capability for one of my Targets:
 
-![alt](failed-registering-bundle-identifier-error.png)
+![](failed-registering-bundle-identifier-error.png)
 
 While the error message states:
 
