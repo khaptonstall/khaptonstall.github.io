@@ -1,0 +1,45 @@
+baseURL: https://khaptonstall.github.io/
+languageCode: en-us
+title: Kyle Haptonstall
+theme: PaperMod
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production # enable social metadata and seo
+
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+  homeInfoParams:
+    Title: Hi there 👋
+    Content: "I’m a software engineer that has been shipping products on Apple platforms since 2015. Most recently, I lead iOS engineering for Riva Health, [turning your iPhone into an FDA-approved blood pressure monitor](https://techcrunch.com/2021/03/17/riva-health-wants-to-turn-your-smartphone-into-a-blood-pressure-monitor/). I’m also a big fan of craft coffee ☕ and English football ⚽."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/khaptonstall"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/khaptonstall/"
+  
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 10
+    - name: Archives
+      url: /archives/
+      weight: 20

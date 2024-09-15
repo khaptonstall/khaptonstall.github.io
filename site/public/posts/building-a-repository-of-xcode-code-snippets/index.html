@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Building a Repository of Xcode Code Snippets | Kyle Haptonstall</title>
+<meta name="keywords" content="">
+<meta name="description" content="This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)
+I won’t go over how to create and use code snippets within Xcode, but if you’d like a refresher, check out this post by Sarun.">
+<meta name="author" content="Kyle Haptonstall">
+<link rel="canonical" href="http://localhost:1313/posts/building-a-repository-of-xcode-code-snippets/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/building-a-repository-of-xcode-code-snippets/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Building a Repository of Xcode Code Snippets" />
+<meta property="og:description" content="This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)
+I won’t go over how to create and use code snippets within Xcode, but if you’d like a refresher, check out this post by Sarun." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/building-a-repository-of-xcode-code-snippets/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-22T21:32:03-05:00" />
+<meta property="article:modified_time" content="2024-04-22T21:32:03-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building a Repository of Xcode Code Snippets"/>
+<meta name="twitter:description" content="This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)
+I won’t go over how to create and use code snippets within Xcode, but if you’d like a refresher, check out this post by Sarun."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Building a Repository of Xcode Code Snippets",
+      "item": "http://localhost:1313/posts/building-a-repository-of-xcode-code-snippets/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a Repository of Xcode Code Snippets",
+  "name": "Building a Repository of Xcode Code Snippets",
+  "description": "This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)\nI won’t go over how to create and use code snippets within Xcode, but if you’d like a refresher, check out this post by Sarun.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)\nI won’t go over how to create and use code snippets within Xcode, but if you’d like a refresher, check out this post by Sarun.\nSetup Create a code snippets repository First, you’ll need to have a repository setup in which you’ll store your code snippets. We’ll assume that’s done and that we’ll store all snippets within the root of that repository.\nSave your first snippet We’ll also need a code snippet to work with. For demo purposes, I’ll use the one below, which contains some boilerplate to create a new EnvironmentKey in SwiftUI:\n\u0026lt;?xml version=\"1.0\" encoding=\"UTF-8\"?\u0026gt; \u0026lt;!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"\u0026gt; \u0026lt;plist version=\"1.0\"\u0026gt; \u0026lt;dict\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetCompletionPrefix\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;environmentkey\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetCompletionScopes\u0026lt;/key\u0026gt; \u0026lt;array\u0026gt; \u0026lt;string\u0026gt;TopLevel\u0026lt;/string\u0026gt; \u0026lt;/array\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetContents\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;private struct \u0026amp;lt;#Key#\u0026amp;gt;: EnvironmentKey { static let defaultValue: \u0026amp;lt;#Type#\u0026amp;gt; = \u0026amp;lt;#Default Value#\u0026amp;gt; } extension EnvironmentValues { var \u0026amp;lt;#name#\u0026amp;gt;: \u0026amp;lt;#Type#\u0026amp;gt; { get { self[\u0026amp;lt;#Key#\u0026amp;gt;.self] } set { self[\u0026amp;lt;#Key#\u0026amp;gt;.self] = newValue } } }\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetIdentifier\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;8DBC6F81-7661-48B5-B852-2336988AB94C\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetLanguage\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;Xcode.SourceCodeLanguage.Swift\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetSummary\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetTitle\u0026lt;/key\u0026gt; \u0026lt;string\u0026gt;EnvironmentKey\u0026lt;/string\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetUserSnippet\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;key\u0026gt;IDECodeSnippetVersion\u0026lt;/key\u0026gt; \u0026lt;integer\u0026gt;0\u0026lt;/integer\u0026gt; \u0026lt;/dict\u0026gt; \u0026lt;/plist\u0026gt; And here’s the Swift code the above code snippet will generate:\nprivate struct \u003c#Key#\u003e: EnvironmentKey { static let defaultValue: \u003c#Type#\u003e = \u003c#Default Value#\u003e } extension EnvironmentValues { var \u003c#name#\u003e: \u003c#Type#\u003e { get { self[\u003c#Key#\u003e.self] } set { self[\u003c#Key#\u003e.self] = newValue } } } Copy the XML code snippet from above and save it as a new file within the root directory of your repo with the extension .codesnippet (e.g. environment-key.codesnippet).\nLoad Your Custom Code Snippets To make your code snippets available to Xcode, you’ll need to move them into the CodeSnippets directory, found at ~/Library/Developer/Xcode/UserData/CodeSnippets.\nBelow is a script you can create and store in your code snippets repo to help automate the process:\n#!/bin/bash # Store the Xcode CodeSnippets directory into a variable we can reference SNIPPETS_DIRECTORY=\"$HOME/Library/Developer/Xcode/UserData/CodeSnippets\" # Find all .codesnippet files within the current directory and # store them in a variable SNIPPETS=$(find ./ -type f -name '*.codesnippet') # For each .codesnippet file, copy it into the snippets directory echo \"$SNIPPETS\" | xargs -I {} cp {} $SNIPPETS_DIRECTORY As you continue working in Xcode and find yourself typing the same boilerplate, you can create Xcode Code Snippets and pull them from the CodeSnippets directory into your own repo. Then, when you jump to a new machine, simply clone your repo and run the script above! 🎉\nThere’s also opportunity here to create a script which does the reverse (i.e. pulls all the snippets out of the CodeSnippets directory and into your repo), but I’ll leave that as an exercise to the reader 🧑‍💻.\n",
+  "wordCount" : "468",
+  "inLanguage": "en",
+  "datePublished": "2024-04-22T21:32:03-05:00",
+  "dateModified": "2024-04-22T21:32:03-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kyle Haptonstall"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/building-a-repository-of-xcode-code-snippets/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kyle Haptonstall",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Kyle Haptonstall (Alt + H)">Kyle Haptonstall</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Building a Repository of Xcode Code Snippets
+    </h1>
+    <div class="post-meta"><span title='2024-04-22 21:32:03 -0500 CDT'>April 22, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kyle Haptonstall
+
+</div>
+  </header> 
+  <div class="post-content"><p>This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)</p>
+<p>I won’t go over how to create and use code snippets <em>within</em> Xcode, but if you’d like a refresher, check out <a href="https://sarunw.com/posts/how-to-create-code-snippets-in-xcode/">this post by Sarun</a>.</p>
+<h1 id="setup">Setup<a hidden class="anchor" aria-hidden="true" href="#setup">#</a></h1>
+<h2 id="create-a-code-snippets-repository">Create a code snippets repository<a hidden class="anchor" aria-hidden="true" href="#create-a-code-snippets-repository">#</a></h2>
+<p>First, you’ll need to have a repository setup in which you’ll store your code snippets. We’ll assume that’s done and that we’ll store all snippets within the root of that repository.</p>
+<h2 id="save-your-first-snippet">Save your first snippet<a hidden class="anchor" aria-hidden="true" href="#save-your-first-snippet">#</a></h2>
+<p>We’ll also need a code snippet to work with. For demo purposes, I’ll use the one below, which contains some boilerplate to create a new <code>EnvironmentKey</code> in SwiftUI:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;plist version=&#34;1.0&#34;&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;dict&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetCompletionPrefix&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;environmentkey&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetCompletionScopes&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;array&amp;gt;
+</span></span><span style="display:flex;"><span>        &amp;lt;string&amp;gt;TopLevel&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;/array&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetContents&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;private struct &amp;amp;lt;#Key#&amp;amp;gt;: EnvironmentKey {
+</span></span><span style="display:flex;"><span>    static let defaultValue: &amp;amp;lt;#Type#&amp;amp;gt; = &amp;amp;lt;#Default Value#&amp;amp;gt;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extension EnvironmentValues {
+</span></span><span style="display:flex;"><span>    var &amp;amp;lt;#name#&amp;amp;gt;: &amp;amp;lt;#Type#&amp;amp;gt; {
+</span></span><span style="display:flex;"><span>        get { self[&amp;amp;lt;#Key#&amp;amp;gt;.self] }
+</span></span><span style="display:flex;"><span>        set { self[&amp;amp;lt;#Key#&amp;amp;gt;.self] = newValue }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetIdentifier&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;8DBC6F81-7661-48B5-B852-2336988AB94C&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetLanguage&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;Xcode.SourceCodeLanguage.Swift&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetSummary&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetTitle&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;string&amp;gt;EnvironmentKey&amp;lt;/string&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetUserSnippet&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;true/&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;key&amp;gt;IDECodeSnippetVersion&amp;lt;/key&amp;gt;
+</span></span><span style="display:flex;"><span>    &amp;lt;integer&amp;gt;0&amp;lt;/integer&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;/dict&amp;gt;
+</span></span><span style="display:flex;"><span>&amp;lt;/plist&amp;gt;
+</span></span></code></pre></div><p>And here’s the Swift code the above code snippet will generate:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">struct</span> <span style="color:#f92672">&lt;</span>#Key#<span style="color:#f92672">&gt;</span>: EnvironmentKey {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> defaultValue: <span style="color:#f92672">&lt;</span>#<span style="color:#66d9ef">Type</span>#<span style="color:#f92672">&gt;</span> = <span style="color:#f92672">&lt;</span>#Default Value#<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">EnvironmentValues</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#f92672">&lt;</span>#name#<span style="color:#f92672">&gt;</span>: <span style="color:#f92672">&lt;</span>#<span style="color:#66d9ef">Type</span>#<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">self</span>[<span style="color:#f92672">&lt;</span>#Key#<span style="color:#f92672">&gt;</span>.<span style="color:#66d9ef">self</span>] }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">set</span> { <span style="color:#66d9ef">self</span>[<span style="color:#f92672">&lt;</span>#Key#<span style="color:#f92672">&gt;</span>.<span style="color:#66d9ef">self</span>] = newValue }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Copy the XML code snippet from above and save it as a new file within the root directory of your repo with the extension <code>.codesnippet</code> (e.g. <code>environment-key.codesnippet</code>).</p>
+<h1 id="load-your-custom-code-snippets">Load Your Custom Code Snippets<a hidden class="anchor" aria-hidden="true" href="#load-your-custom-code-snippets">#</a></h1>
+<p>To make your code snippets available to Xcode, you’ll need to move them into the <code>CodeSnippets</code> directory, found at <code>~/Library/Developer/Xcode/UserData/CodeSnippets</code>.</p>
+<p>Below is a script you can create and store in your code snippets repo to help automate the process:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Store the Xcode CodeSnippets directory into a variable we can reference</span>
+</span></span><span style="display:flex;"><span>SNIPPETS_DIRECTORY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/Library/Developer/Xcode/UserData/CodeSnippets&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Find all .codesnippet files within the current directory and </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># store them in a variable</span>
+</span></span><span style="display:flex;"><span>SNIPPETS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>find ./ -type f -name <span style="color:#e6db74">&#39;*.codesnippet&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For each .codesnippet file, copy it into the snippets directory</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$SNIPPETS<span style="color:#e6db74">&#34;</span> | xargs -I <span style="color:#f92672">{}</span> cp <span style="color:#f92672">{}</span> $SNIPPETS_DIRECTORY
+</span></span></code></pre></div><p>As you continue working in Xcode and find yourself typing the same boilerplate, you can create Xcode Code Snippets and pull them from the CodeSnippets directory into your own repo. Then, when you jump to a new machine, simply clone your repo and run the script above! 🎉</p>
+<p>There’s also opportunity here to create a script which does the reverse (i.e. pulls all the snippets <em>out</em> of the CodeSnippets directory and into your repo), but I’ll leave that as an exercise to the reader 🧑‍💻.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/building-a-static-site-in-swift-using-ignite-and-github-pages/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Building a Static Site in Swift using Ignite and GitHub Pages</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">Kyle Haptonstall</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
