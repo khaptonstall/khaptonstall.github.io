@@ -49,6 +49,9 @@ menu:
     - name: Archives
       url: /archives/
       weight: 20
+    - name: Tags
+      url: /tags/
+      weight: 30
     - name: Search
       url: /search/
-      weight: 30
+      weight: 40

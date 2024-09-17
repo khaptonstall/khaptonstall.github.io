@@ -3,6 +3,8 @@ title: "Building a Repository of Xcode Code Snippets"
 date: 2024-04-22T21:32:03-05:00
 draft: false
 author: Kyle Haptonstall
+tags:
+    - Developer Tools
 ---
 
 This post will outline a process of checking Xcode Code Snippets into source control in order to build out a library of snippets you can easily import on new machines or take with you to new companies. (You can also use this to create a shared library of snippets within a development team.)

@@ -3,6 +3,9 @@ title: "Building a Share Extension with SwiftUI"
 date: 2024-07-12T21:32:03-05:00
 draft: false
 author: Kyle Haptonstall
+tags:
+    - SwiftUI
+    - App Extensions
 ---
 
 # Overview

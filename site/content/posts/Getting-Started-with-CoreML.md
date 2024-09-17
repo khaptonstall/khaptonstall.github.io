@@ -4,6 +4,8 @@ description: "Building an object detection application"
 date: 2018-05-24T21:32:03-05:00
 draft: false
 author: Kyle Haptonstall
+tags:
+    - CoreML
 ---
 
 ![Image via Apple](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*HOmbarPbQeI2NqTVk6Z1Jw.png)

@@ -4,6 +4,8 @@ description: "Finding datasets and building custom models with CreateMLUI"
 date: 2018-06-11T21:32:03-05:00
 draft: false
 author: Kyle Haptonstall
+tags:
+    - CreateML
 ---
 
 Prerequisites:
