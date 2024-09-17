@@ -14,6 +14,7 @@ services:
 
 params:
   env: production # enable social metadata and seo
+  description: "I’m Kyle Haptonstall, a software engineer that has been shipping products on Apple platforms since 2015. Most recently, I lead iOS engineering for Riva Health, turning your iPhone into an FDA-approved blood pressure monitor."
 
   ShowReadingTime: true
   ShowPostNavLinks: true
