@@ -15,7 +15,7 @@ Prerequisites:
 *   [Xcode 10 Beta](https://developer.apple.com/download/)
 *   [Apple’s Vision Starter Project](https://developer.apple.com/documentation/vision/classifying_images_with_vision_and_core_ml)
 
-In a previous post I showed you how to [get started with CoreML](https://khaptonstall.github.io/posts/getting-started-with-coreml/), which allows you to use pre-trained machine learning models in your projects. One of the limitations discussed was that as soon as you want to begin classifying something in your app that one of the pre-trained models isn’t trained for, the learning curve for training your own model becomes fairly steep.
+In a previous post I showed you how to [get started with CoreML](https://kylehaptonstall.com/posts/getting-started-with-coreml/), which allows you to use pre-trained machine learning models in your projects. One of the limitations discussed was that as soon as you want to begin classifying something in your app that one of the pre-trained models isn’t trained for, the learning curve for training your own model becomes fairly steep.
 
 **CreateML to the Rescue**
 --------------------------
