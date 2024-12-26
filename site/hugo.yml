@@ -29,7 +29,7 @@ params:
 
   homeInfoParams:
     Title: Hi there 👋
-    Content: "I’m a software engineer that has been shipping products on Apple platforms since 2015. Most recently, I lead iOS engineering for Riva Health, [turning your iPhone into an FDA-approved blood pressure monitor](https://techcrunch.com/2021/03/17/riva-health-wants-to-turn-your-smartphone-into-a-blood-pressure-monitor/). I’m also a big fan of craft coffee ☕ and English football ⚽."
+    Content: "I’m a software engineer that has been shipping products on Apple platforms since 2015, with extensive experience managing the entirety of the iOS software development lifecycle across teams large and small. Currently making developer lives easier as part of the Mobile Platform Team at Amazon One Medical. Prior to that, I led iOS engineering for Riva Health, [turning your iPhone into an FDA-approved blood pressure monitor](https://techcrunch.com/2021/03/17/riva-health-wants-to-turn-your-smartphone-into-a-blood-pressure-monitor/). I’m also a big fan of craft coffee ☕ and English football ⚽."
 
   socialIcons:
     - name: github
